@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yooeee.elastic.search.mapper.ShopRebateMapper" >
+  <resultMap id="BaseResultMap" type="com.yooeee.elastic.search.entry.ShopRebate" >
+    <id column="rebid" property="rebid" jdbcType="INTEGER" />
+    <result column="mer_id" property="merId" jdbcType="VARCHAR" />
+    <result column="mer_name" property="merName" jdbcType="VARCHAR" />
+    <result column="is_rebates" property="isRebates" jdbcType="CHAR" />
+    <result column="return_ratio" property="returnRatio" jdbcType="DOUBLE" />
+    <result column="is_time_rebates" property="isTimeRebates" jdbcType="CHAR" />
+    <result column="time_rebates_ratio" property="timeRebatesRatio" jdbcType="DOUBLE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="rebates_begin_time_bak" property="rebatesBeginTimeBak" jdbcType="TIME" />
+    <result column="rebates_end_time_bak" property="rebatesEndTimeBak" jdbcType="TIME" />
+    <result column="begin_time" property="beginTime" jdbcType="VARCHAR" />
+    <result column="end_time" property="endTime" jdbcType="VARCHAR" />
+    <result column="rmid" property="rmid" jdbcType="INTEGER" />
+    <result column="rebates_type" property="rebatesType" jdbcType="CHAR" />
+    <result column="rebates_ratio_lower" property="rebatesRatioLower" jdbcType="DOUBLE" />
+    <result column="rebates_ratio_upper" property="rebatesRatioUpper" jdbcType="DOUBLE" />
+    <result column="time_rebats_type" property="timeRebatsType" jdbcType="CHAR" />
+    <result column="time_rebates_ratio_lower" property="timeRebatesRatioLower" jdbcType="DOUBLE" />
+    <result column="time_rebates_ratio_upper" property="timeRebatesRatioUpper" jdbcType="DOUBLE" />
+    <result column="is_h5_rebates" property="isH5Rebates" jdbcType="CHAR" />
+    <result column="rebates_h5_type" property="rebatesH5Type" jdbcType="CHAR" />
+    <result column="rebates_h5_ratio" property="rebatesH5Ratio" jdbcType="DOUBLE" />
+    <result column="rebates_h5_ratio_lower" property="rebatesH5RatioLower" jdbcType="DOUBLE" />
+    <result column="rebates_h5_ratio_upper" property="rebatesH5RatioUpper" jdbcType="DOUBLE" />
+    <result column="is_time_h5_rebates" property="isTimeH5Rebates" jdbcType="CHAR" />
+    <result column="time_h5_rebates_type" property="timeH5RebatesType" jdbcType="CHAR" />
+    <result column="time_h5_rebates_ratio" property="timeH5RebatesRatio" jdbcType="DOUBLE" />
+    <result column="time_h5_rebates_ratio_lower" property="timeH5RebatesRatioLower" jdbcType="DOUBLE" />
+    <result column="time_h5_rebates_ratio_upper" property="timeH5RebatesRatioUpper" jdbcType="DOUBLE" />
+    <result column="time_h5_rebates_begin_time" property="timeH5RebatesBeginTime" jdbcType="VARCHAR" />
+    <result column="return_cap" property="returnCap" jdbcType="DOUBLE" />
+    <result column="time_h5_rebates_end_time" property="timeH5RebatesEndTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rebid, mer_id, mer_name, is_rebates, return_ratio, is_time_rebates, time_rebates_ratio, 
+    create_time, rebates_begin_time_bak, rebates_end_time_bak, begin_time, end_time, 
+    rmid, rebates_type, rebates_ratio_lower, rebates_ratio_upper, time_rebats_type, time_rebates_ratio_lower, 
+    time_rebates_ratio_upper, is_h5_rebates, rebates_h5_type, rebates_h5_ratio, rebates_h5_ratio_lower, 
+    rebates_h5_ratio_upper, is_time_h5_rebates, time_h5_rebates_type, time_h5_rebates_ratio, 
+    time_h5_rebates_ratio_lower, time_h5_rebates_ratio_upper, time_h5_rebates_begin_time, 
+    return_cap, time_h5_rebates_end_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from p_merchant_rebates
+    where rebid = #{rebid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByMerId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from p_merchant_rebates
+    where mer_id = #{merId,jdbcType=VARCHAR} limit 1
+  </select>
+
+</mapper>

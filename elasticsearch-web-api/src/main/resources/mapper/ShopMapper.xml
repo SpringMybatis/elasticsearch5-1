@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yooeee.elastic.search.mapper.ShopMapper" >
+  <resultMap id="BaseResultMap" type="com.yooeee.elastic.search.entry.Shop" >
+    <id column="mid" property="mid" jdbcType="INTEGER" />
+    <result column="merchant_id" property="merchantId" jdbcType="VARCHAR" />
+    <result column="merchant_cname" property="merchantCname" jdbcType="VARCHAR" />
+    <result column="merchant_ename" property="merchantEname" jdbcType="VARCHAR" />
+    <result column="merchant_class_id" property="merchantClassId" jdbcType="INTEGER" />
+    <result column="district_name" property="districtName" jdbcType="VARCHAR" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="service_rate" property="serviceRate" jdbcType="DOUBLE" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="contact_phone" property="contactPhone" jdbcType="VARCHAR" />
+    <result column="hours" property="hours" jdbcType="VARCHAR" />
+    <result column="logo_url" property="logoUrl" jdbcType="VARCHAR" />
+    <result column="contact_info" property="contactInfo" jdbcType="VARCHAR" />
+    <result column="traffic" property="traffic" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="focus" property="focus" jdbcType="INTEGER" />
+    <result column="ispub" property="ispub" jdbcType="CHAR" />
+    <result column="cooperation_level" property="cooperationLevel" jdbcType="CHAR" />
+    <result column="field1" property="field1" jdbcType="VARCHAR" />
+    <result column="field2" property="field2" jdbcType="VARCHAR" />
+    <result column="merchant_org_id" property="merchantOrgId" jdbcType="VARCHAR" />
+    <result column="qr_code_url" property="qrCodeUrl" jdbcType="VARCHAR" />
+    <result column="activity_img" property="activityImg" jdbcType="VARCHAR" />
+    <result column="shop_face" property="shopFace" jdbcType="VARCHAR" />
+    <result column="use_voucher" property="useVoucher" jdbcType="CHAR" />
+    <result column="sys_office_id" property="sysOfficeId" jdbcType="CHAR" />
+    <result column="sub_bank" property="subBank" jdbcType="VARCHAR" />
+    <result column="open_bank" property="openBank" jdbcType="VARCHAR" />
+    <result column="bank_no" property="bankNo" jdbcType="VARCHAR" />
+    <result column="person_name" property="personName" jdbcType="VARCHAR" />
+    <result column="payment_settle_date" property="paymentSettleDate" jdbcType="DATE" />
+    <result column="back_ratio" property="backRatio" jdbcType="VARCHAR" />
+    <result column="sttle_type" property="sttleType" jdbcType="INTEGER" />
+    <result column="sttle_date1" property="sttleDate1" jdbcType="VARCHAR" />
+    <result column="sttle_date2" property="sttleDate2" jdbcType="VARCHAR" />
+    <result column="sttle_date3" property="sttleDate3" jdbcType="VARCHAR" />
+    <result column="sttle_date4" property="sttleDate4" jdbcType="VARCHAR" />
+    <result column="have_shop" property="haveShop" jdbcType="CHAR" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="shop_small_pic" property="shopSmallPic" jdbcType="VARCHAR" />
+    <result column="shop_pic" property="shopPic" jdbcType="VARCHAR" />
+    <result column="shop_text_pic" property="shopTextPic" jdbcType="VARCHAR" />
+    <result column="shop_have_goods" property="shopHaveGoods" jdbcType="CHAR" />
+    <result column="area_tag" property="areaTag" jdbcType="VARCHAR" />
+    <result column="detail_doc_url" property="detailDocUrl" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="merchant_discount" property="merchantDiscount" jdbcType="DOUBLE" />
+    <result column="settle_day" property="settleDay" jdbcType="INTEGER" />
+    <result column="delete_status" property="deleteStatus" jdbcType="INTEGER" />
+    <result column="h5_rq_code" property="h5RqCode" jdbcType="VARCHAR" />
+    <result column="contract_no" property="contractNo" jdbcType="VARCHAR" />
+    <result column="rec_mobile" property="recMobile" jdbcType="VARCHAR" />
+    <result column="pj_first_party_rate" property="pjFirstPartyRate" jdbcType="DOUBLE" />
+    <result column="pj_pay_rate" property="pjPayRate" jdbcType="DOUBLE" />
+    <result column="h5_first_party_rate" property="h5FirstPartyRate" jdbcType="DOUBLE" />
+    <result column="h5_pay_rate" property="h5PayRate" jdbcType="DOUBLE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yooeee.elastic.search.entry.Shop" extends="BaseResultMap" >
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+    <result column="scene_pics" property="scenePics" jdbcType="LONGVARCHAR" />
+    <result column="shop_text" property="shopText" jdbcType="LONGVARCHAR" />
+    <result column="shop_pri" property="shopPri" jdbcType="LONGVARCHAR" />
+    <result column="shop_pri_list" property="shopPriList" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mid, merchant_id, merchant_cname, merchant_ename, merchant_class_id, district_name, 
+    city_name, province_name, longitude, latitude, service_rate, address, contact_phone, 
+    hours, logo_url, contact_info, traffic, weight, focus, ispub, cooperation_level, 
+    field1, field2, merchant_org_id, qr_code_url, activity_img, shop_face, use_voucher, 
+    sys_office_id, sub_bank, open_bank, bank_no, person_name, payment_settle_date, back_ratio, 
+    sttle_type, sttle_date1, sttle_date2, sttle_date3, sttle_date4, have_shop, shop_name, 
+    shop_small_pic, shop_pic, shop_text_pic, shop_have_goods, area_tag, detail_doc_url, 
+    create_time, update_time, merchant_discount, settle_day, delete_status, h5_rq_code, 
+    contract_no, rec_mobile, pj_first_party_rate, pj_pay_rate, h5_first_party_rate, h5_pay_rate
+  </sql>
+  <sql id="Blob_Column_List" >
+    description, scene_pics, shop_text, shop_pri, shop_pri_list
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from p_ticket_merchant
+    where mid = #{mid,jdbcType=INTEGER}
+  </select>
+
+  <select id="findList" resultMap="ResultMapWithBLOBs"  >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from p_ticket_merchant
+  </select>
+
+
+</mapper>

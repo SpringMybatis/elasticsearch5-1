@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yooeee.elastic.search.mapper.ShopCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.yooeee.elastic.search.entry.ShopCategory" >
+    <id column="merchant_id" property="merchantId" jdbcType="INTEGER" />
+    <result column="merchant_name" property="merchantName" jdbcType="VARCHAR" />
+    <result column="type_id" property="typeId" jdbcType="INTEGER" />
+    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+    <result column="merchant_parent_id" property="merchantParentId" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="merchant_url" property="merchantUrl" jdbcType="VARCHAR" />
+    <result column="merchant_sort" property="merchantSort" jdbcType="INTEGER" />
+    <result column="merchant_title" property="merchantTitle" jdbcType="VARCHAR" />
+    <result column="merchant_InsertTime" property="merchantInserttime" jdbcType="TIMESTAMP" />
+    <result column="merchant_operator" property="merchantOperator" jdbcType="VARCHAR" />
+    <result column="merchant_parent_ids" property="merchantParentIds" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="INTEGER" />
+    <result column="class_area" property="classArea" jdbcType="VARCHAR" />
+    <result column="class_area_name" property="classAreaName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    merchant_id, merchant_name, type_id, type_name, merchant_parent_id, level, merchant_url, 
+    merchant_sort, merchant_title, merchant_InsertTime, merchant_operator, merchant_parent_ids, 
+    del_flag, class_area, class_area_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from p_ticket_merchant_class
+    where merchant_id = #{merchantId,jdbcType=INTEGER}
+    limit 1
+  </select>
+
+</mapper>
